@@ -392,7 +392,7 @@ class MP4 {
 
 		var reused = false;
 		if (self.options.reuseLastFrame || self.options.ignoreIdenticalFrames) {
-			var hash = crypto.createHash("RSA-MD4").update(data).digest("base64");
+			var hash = crypto.createHash("SHA-256").update(data).digest("base64");
 			if (esi.lastHash == hash && esi.lastFrameLength == data.length) {
 				if (self.options.ignoreIdenticalFrames) {
 					esi.identicalFrames++;
